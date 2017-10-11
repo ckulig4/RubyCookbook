@@ -1,0 +1,7 @@
+<%= render "/shared/search" %>
+<h2>Latest Recipes</h2>
+<p>There are <%= @number_of_recipes %> recipes total.</p>
+<p><% if logged_in? %>
+    <%= link_to 'New recipe', new_recipe_path %>
+   <% end %>
+</p>

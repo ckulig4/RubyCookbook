@@ -1,0 +1,17 @@
+$noticeTextColor: #000;
+$noticeBackgroundColor: #0f0;
+$noticeWidth: 940px;
+
+#notice{
+  background-color: $noticeBackgroundColor;
+  color: $noticeTextColor;
+  margin: 0 auto;
+  
+  @media only screen and (min-width: $noticeWidth){
+    width: $noticeWidth;
+  }
+  
+  @media only screen and (max-width: $noticeWidth -1){
+    width: 90%;
+  }
+}

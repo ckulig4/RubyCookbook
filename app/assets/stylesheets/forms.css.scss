@@ -1,0 +1,44 @@
+$errorColor: #c00;
+$formWidth: 940px;
+$textboxWidth: 500px;
+$textboxHeight: 50px;
+
+.field_with_errors {
+  background-color: $errorColor;
+  color: #fff;
+  display: inline-block;
+  padding: 1px;
+}
+
+#error_explanation {
+  border: 2px solid $errorColor;
+  margin-bottom: 10px;
+  
+  h2 {
+    background-color: $errorColor;
+    color: #fff;
+    font-size: 12px;
+    margin: 0;
+    padding: 5px 5px 5px 15px;
+  }
+}
+
+.field{
+  margin: 0 auto;
+  
+  @media only screen and (min-width: $formWidth){
+    width: $formWidth;
+    &>textarea{
+      width: $textboxWidth;
+      height: $textboxHeight;
+    }
+  }
+  
+  @media only screen and (max-width: $formWidth -1){
+    width: 90%;
+    &>textarea{
+      width: 90%;
+      height: 90%;
+    }
+  }
+}

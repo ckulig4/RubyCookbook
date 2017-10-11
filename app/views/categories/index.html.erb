@@ -1,0 +1,21 @@
+<h1>Listing Categories</h1>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th colspan="2">&nbsp;</th>
+  </tr>
+  
+  <% @categories.each do |category| %>
+  <tr>
+    <td><%= link_to category.name, category %></td>
+    
+    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <td><% if logged_in? %><%= button_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %><% end %></td>
+  </tr>
+  <% end %>
+</table>
+
+<% if logged_in? %>
+  <%= link_to 'New category', new_category_path %>
+<% end %>

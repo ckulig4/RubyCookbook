@@ -1,0 +1,25 @@
+<%= render "/shared/search" %>
+<h1>Listing recipes</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Last Updated</th>
+    <th colspan="2">&nbsp;</th>
+  </tr>
+  
+  <% @recipes.each do |recipe| %>
+  <tr>
+    <td><%= link_to recipe.title, recipe %></td>
+    <td><%= recipe.category.name rescue "No category" %></td>
+    <td><%= time_ago_in_words(recipe.updated_at) %> ago</td>
+    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+    <td><% if logged_in? %><%= button_to 'Destroy', recipe, confirm: 'Are you sure?', method: :delete %><% end %></td>
+  </tr>
+  <% end %>
+</table>
+
+<% if logged_in? %>
+  <%= link_to 'New recipe', new_recipe_path %>
+<% end %>
